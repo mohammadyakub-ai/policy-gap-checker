@@ -50,6 +50,8 @@ Accuracy: 19/20 = 95% (20 items; AI-drafted, then reviewed and labeled by the au
 
 Expected NONE, got CHANGE. Text: This information security policy document is owned by the operations function, is maintained under version control in the handbook repository, and supersedes every earlier internal note written on the same subject.
 
+Why: The paragraph states that the policy is owned by the operations function and kept under version control, and the model's own reason was that it "describes version control and governance of the policy." It read that phrase, plus the document governance, as change management, but the paragraph sets no rules about how production changes are reviewed or approved. This is a keyword-driven false positive: a document-ownership line sits near, but outside, a control.
+
 ## Borderline calls
 
 - Sample paragraph 10, mandatory security awareness training for engineers on secure coding, was classified TRAINING and could arguably also fit CHANGE (secure development), which illustrates the one-control-per-paragraph limitation.
