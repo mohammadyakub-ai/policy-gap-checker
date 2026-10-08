@@ -1,0 +1,74 @@
+[
+  {
+    "text": "All staff accounts are granted only the minimum privileges needed for their job role, and multi-factor authentication is required for every remote login.",
+    "control": "ACCESS"
+  },
+  {
+    "text": "System owners must review user access lists every quarter and promptly remove permissions from employees who change roles or leave the company.",
+    "control": "ACCESS"
+  },
+  {
+    "text": "Company laptops and database volumes are encrypted at rest with full disk encryption, and all encryption keys are stored in a managed key vault.",
+    "control": "ENCRYPT"
+  },
+  {
+    "text": "All internal and customer traffic must travel over TLS 1.2 or higher, and unencrypted protocols such as plain FTP and HTTP are banned on the network.",
+    "control": "ENCRYPT"
+  },
+  {
+    "text": "Authentication failures, privilege changes, and administrative actions are logged centrally and retained for at least twelve months for audit purposes.",
+    "control": "LOGGING"
+  },
+  {
+    "text": "Security monitoring alerts are reviewed by the operations team every business day, and unanswered critical alerts escalate to the on-call engineer.",
+    "control": "LOGGING"
+  },
+  {
+    "text": "Any suspected data breach must be reported to the security team within one hour, and the incident response plan assigns a single incident commander.",
+    "control": "INCIDENT"
+  },
+  {
+    "text": "After a security incident is contained, affected customers and regulators must be notified within seventy-two hours according to our breach procedure.",
+    "control": "INCIDENT"
+  },
+  {
+    "text": "Production databases are backed up nightly with thirty days of retention, and restores are tested each quarter to confirm our disaster recovery objectives.",
+    "control": "BACKUP"
+  },
+  {
+    "text": "Backup copies are stored in a separate geographic region so critical services can be rebuilt if the primary data center is lost in a disaster.",
+    "control": "BACKUP"
+  },
+  {
+    "text": "Before signing, every third-party vendor with access to company data completes a security assessment, and contracts require an annual reassessment.",
+    "control": "VENDOR"
+  },
+  {
+    "text": "Our payment provider must encrypt our data inside their platform, but our main concern is finishing the vendor security review before the contract renews.",
+    "control": "VENDOR"
+  },
+  {
+    "text": "All production changes go through peer review and an approved change ticket, and emergency fixes must be documented within one business day of deployment.",
+    "control": "CHANGE"
+  },
+  {
+    "text": "Developers run static security checks in the pipeline and record each release in the change log so monitoring can correlate deploy times with alerts.",
+    "control": "CHANGE"
+  },
+  {
+    "text": "All new employees complete security awareness training within their first two weeks, and returning staff repeat the course once every year.",
+    "control": "TRAINING"
+  },
+  {
+    "text": "Staff who fail the annual phishing quiz must retake the training, and their system access is suspended until the refresher module has been passed.",
+    "control": "TRAINING"
+  },
+  {
+    "text": "The office is closed on public holidays, and employees should record planned leave in the HR system at least two weeks in advance of their time off.",
+    "control": "NONE"
+  },
+  {
+    "text": "Our mission is to help small businesses grow by making dependable software that people enjoy using every single day of the working week.",
+    "control": "NONE"
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "text": "Our half-year audit found that engineers who change teams often keep stale group memberships, so people managers must re-approve each team member's permission set every six months and confirm that anyone with production access has finished the annual security course.",
+    "control": "ACCESS",
+    "note": "Touches ACCESS (permission re-approval, least privilege) and TRAINING (annual course). Labeled ACCESS because the enforceable requirement is the review of permissions; training is only a precondition."
+  },
+  {
+    "text": "Before any customer dataset leaves our boundary for the analytics subcontractor, it must be exported in encrypted form with the keys staying in our own key service, so the supplier can transport the records but never read them.",
+    "control": "ENCRYPT",
+    "note": "Touches ENCRYPT (encrypted export, key custody) and VENDOR (subcontractor transfer). Labeled ENCRYPT because the operative safeguard is the encryption and who holds the keys."
+  },
+  {
+    "text": "The payment processor contract renews next quarter, and legal requires a completed security questionnaire, a copy of their latest penetration test report, and written confirmation of their encryption and tokenisation practices for the vendor file.",
+    "control": "VENDOR",
+    "note": "Touches VENDOR (due diligence, contract renewal) and ENCRYPT (encryption confirmation). Labeled VENDOR because the work is third-party assessment and record keeping, not an encryption control of our own."
+  },
+  {
+    "text": "Failed logins, privilege changes and administrative commands are written to the central log platform with one-year retention, and the security operations rota works through the alert queue each morning to catch suspicious sequences before they develop.",
+    "control": "LOGGING",
+    "note": "Touches LOGGING (collection, retention, review) and INCIDENT (early detection of attacks). Labeled LOGGING because the paragraph defines what is recorded and how long it is kept."
+  },
+  {
+    "text": "Before a schema migration reaches production the database administrator takes a manual snapshot of the affected tables and proves the copy can be restored, so that a failed migration can be rolled back without losing customer orders.",
+    "control": "BACKUP",
+    "note": "Touches BACKUP (snapshot and proven restore) and CHANGE (schema migration). Labeled BACKUP because the substantive safeguard is a restorable copy; the migration is only the situation that triggers it."
+  },
+  {
+    "text": "The purpose of this policy is to describe how the organisation expects information to be handled across its systems, and to set out the principles that guide decisions about technology, people and process.",
+    "control": "NONE",
+    "note": "Purpose statement in security language; states intent rather than any specific control requirement."
+  },
+  {
+    "text": "For the purposes of this document, a critical system is one whose unplanned outage would halt order processing for more than four hours, and a restricted record is any file containing personal data about customers or staff.",
+    "control": "NONE",
+    "note": "Definitions paragraph using security vocabulary; it defines terms and imposes no obligation."
+  },
+  {
+    "text": "This information security policy document is owned by the operations function, is maintained under version control in the handbook repository, and supersedes every earlier internal note written on the same subject.",
+    "control": "NONE",
+    "note": "Document ownership and versioning line; administrative rather than a security control."
+  },
+  {
+    "text": "We aim to respond to security events quickly and calmly, drawing on the experience of the team to limit disruption and to restore confidence once the situation has passed.",
+    "control": "INCIDENT",
+    "note": "Vague, high-level wording with no procedure or timing; the subject is clearly reacting to security events."
+  },
+  {
+    "text": "Improvements to our services should be introduced thoughtfully, with the team weighing the likely impact on customers and on the wider platform before anything is released.",
+    "control": "CHANGE",
+    "note": "Vague, high-level wording with no review or ticket mechanics; the subject is clearly releasing changes."
+  },
+  {
+    "text": "Everyone at the company is expected to build good security habits over time and to keep their knowledge current as the threat landscape and our own tools continue to evolve.",
+    "control": "TRAINING",
+    "note": "Vague, high-level wording with no course, deadline or assessment; the subject is clearly keeping people's security knowledge current."
+  },
+  {
+    "text": "Accounts used by the reporting pipeline must not belong to individual people, must have no interactive sign-in rights, and must have their credentials rotated by the platform automation every ninety days.",
+    "control": "ACCESS",
+    "note": "Service account privilege and credential rules; squarely least-privilege access management."
+  },
+  {
+    "text": "Backup archives written to the cold storage bucket are compressed and encrypted before upload, and the bucket policy refuses any request that does not arrive over a TLS-protected connection.",
+    "control": "ENCRYPT",
+    "note": "Encryption of backups at rest and in transit; the storage context does not change the control."
+  },
+  {
+    "text": "Every sign-in to the administrative console creates an entry in the audit trail, and those entries are exported weekly to the immutable store where system administrators cannot edit or delete them.",
+    "control": "LOGGING",
+    "note": "Audit trail creation and tamper-resistant retention; classic logging control."
+  },
+  {
+    "text": "A named duty officer is reachable outside office hours, and any employee who discovers a suspected compromise at night or at the weekend must reach them through the published emergency telephone number.",
+    "control": "INCIDENT",
+    "note": "Out-of-hours escalation path for suspected compromises; part of incident response readiness."
+  },
+  {
+    "text": "The nightly job copies the primary database into the secondary region, and once a month a test confirms that restoring the largest service from that copy finishes inside the agreed recovery time objective.",
+    "control": "BACKUP",
+    "note": "Offsite copies plus a periodic restore test; backup and disaster recovery verification."
+  },
+  {
+    "text": "Suppliers that handle personal data on our behalf are re-assessed every twelve months, and any supplier that fails its assessment must agree a written remediation plan before its contract can be extended.",
+    "control": "VENDOR",
+    "note": "Recurring third-party assessment and contract consequences; vendor risk management."
+  },
+  {
+    "text": "Developers merge code only after a second engineer has reviewed the change, and anything touching authentication, pricing or payment flows additionally needs sign-off from the security team before release.",
+    "control": "CHANGE",
+    "note": "Peer review and approval gates on releases; change management and secure development."
+  },
+  {
+    "text": "New joiners finish the introductory security module during their first week, covering phishing messages, safe handling of customer records, and how to report a suspicious link to the service desk.",
+    "control": "TRAINING",
+    "note": "Mandatory onboarding security module with a stated curriculum; security awareness training."
+  },
+  {
+    "text": "Requests for elevated rights must include a business justification, be approved by the system owner, and are granted for a fixed period after which the elevation expires automatically unless it is renewed.",
+    "control": "ACCESS",
+    "note": "Justified, time-boxed elevation of privilege; access control rather than change management."
+  }
+]

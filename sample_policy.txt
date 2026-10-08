@@ -1,0 +1,19 @@
+This document describes how Northwind Labs protects the information it holds while building its analytics product for small retail customers. It applies to every employee, contractor, and intern who touches company systems, and it is reviewed each year by the engineering leads.
+
+Every person who works with our systems gets an account that carries only the permissions needed for their current job. New accounts are approved by the team lead before they are created, and multi-factor authentication is enabled for anyone signing in from outside the office network.
+
+Team leads must walk through the member and permission lists of their teams once each quarter. Accounts belonging to people who changed role or left the company are disabled within two business days of the notice, and the review is recorded in the ticketing tool.
+
+Data stored in our production database, object storage, and on employee laptops is encrypted at rest using full disk encryption or managed disk encryption. Keys live in the key service managed by the platform team and are rotated whenever a team member with key access leaves.
+
+Connections between our services, and every browser session reaching our customer portal, use TLS 1.2 or newer. Plain FTP, telnet, and unencrypted database ports are blocked at the network edge, and older protocol versions are refused during the handshake.
+
+Authentication attempts, permission changes, and administrative commands are written to the central log store and kept for one year. The on-call engineer scans the alert dashboard at the start of each shift and opens a ticket for any critical alert that has not been acknowledged.
+
+When someone spots a suspected security incident, they notify the on-call security address immediately so an incident commander can be named. The commander decides containment steps, keeps a timeline of actions, and arranges notification to affected customers once the scope is confirmed.
+
+Nightly snapshots of the main database are kept for thirty days, and a weekly full copy is written to the storage account in the secondary region. The team restores a snapshot into a scratch environment every quarter and writes up how long the restore took.
+
+Changes to production move through peer review and an approved change ticket before anyone merges code. Hotfixes may skip the normal schedule but still need a ticket written the same day, and the release notes are attached to the ticket afterwards.
+
+All engineers attend a short session on writing safe code during their first month, covering input handling, secret storage, and dependency updates. The session is repeated each spring with examples drawn from bugs we actually shipped that year.
